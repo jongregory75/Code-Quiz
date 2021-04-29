@@ -59,7 +59,8 @@ var qIndex = 0;
 var cIndex = document.getElementById("choices");
 
 var cAnswer = "";
-//var score = 0;
+var score = 0;
+var showScore = document.querySelector(".showScore");
 var buttonId = "";
 var buttonValue = "";
 var cButtons = "";
@@ -89,16 +90,16 @@ function drawQuestion() {
   function checkAnswer(event) {
     // event.target.id and compare to qNow.answer
     if (event.target.id == qNow.answer) {
-      console.log("Correct Answer");
-      // console.log("Score inside Corrent Answer: " + score);
+      console.log("truthy ---> Correct Answer");
+      console.log("Score inside Corrent Answer: " + score);
       console.log("Event ID: " + this.id);
-      console.log("Event Test: " + event.srcElement.name);
       score = score + 1;
+      showScore.textContent = score;
       qIndex++;
       drawQuestion();
     } else {
       console.log(
-        "Wrong Answer " +
+        "Falsey ---> Wrong Answer " +
           "event.target.id = " +
           event.target.id +
           "  qNow.answer = " +
@@ -109,8 +110,6 @@ function drawQuestion() {
       drawQuestion();
     }
   }
-
-  //TODO: add point for correct answer
 }
 
 function setTime() {
