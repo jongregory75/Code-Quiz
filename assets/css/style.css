@@ -19,12 +19,46 @@ div .topBar {
   justify-content: space-between;
 }
 
+startDiv {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: blueviolet;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+}
+
 div {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: blueviolet;
   width: 75%;
   display: flex;
+  justify-content: center;
+}
+
+/* question container */
+.questions {
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+/* choices container */
+.choiceDiv {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: blueviolet;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -52,14 +86,7 @@ h4 .showScore {
 
 .startButton {
   justify-content: center;
-}
-
-.questions {
   width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
   text-align: center;
 }
 

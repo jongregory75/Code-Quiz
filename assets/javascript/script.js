@@ -54,7 +54,7 @@ startButton.onclick = startQuiz;
 var event = "";
 var clock = document.querySelector(".clock");
 var mainContent = document.getElementById("mainContent");
-var secondsLeft = 60;
+var secondsLeft = 30;
 var qIndex = 0;
 var cIndex = document.getElementById("choices");
 var cAnswer = "";
@@ -95,12 +95,20 @@ function drawQuestion() {
       score = score + 1;
       showScore.textContent = score;
       qIndex++;
-      drawQuestion();
+
       //TODO: clear screen to GAME OVER content
+      if (secondsLeft <= 0 || qIndex == 8) {
+        gameOver();
+      }
+      drawQuestion();
       //TODO: high score logic/local storage/persist
     } else {
       secondsLeft -= 5;
       qIndex++;
+
+      if (secondsLeft <= 0 || qIndex == 8) {
+        gameOver();
+      }
       drawQuestion();
     }
   }
@@ -115,8 +123,21 @@ function setTime() {
     if (secondsLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
+      gameOver();
     }
   }, 1000);
+}
+
+//game over function logic
+function gameOver() {
+  highScore = prompt("Enter your name for the scoreboard: ");
+  console.log("In gameOver  HIGHSCORE " + highScore + " SHOWSCORE " + score);
+  localStorage.setItem(highScore, score);
+  console.log("Game over");
+  document.getElementById("mainContent").innerHTML =
+    "<div><h1>GAME OVER</h1><p>" +
+    localStorage.getItem(highScore) +
+    "</p></div>";
 }
 
 //Controller function
