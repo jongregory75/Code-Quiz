@@ -50,6 +50,7 @@ var qArray = [
 ];
 
 var clock = document.querySelector(".clock");
+var showScore = document.querySelector(".showScore");
 var mainContent = document.getElementById("mainContent");
 var secondsLeft = 60;
 var qIndex = 0;
@@ -100,28 +101,27 @@ function drawQuestion() {
     cIndex.appendChild(cButtons);
   });
 
-  qIndex++;
-
   function checkAnswer(event) {
     //TODO set var = event.target.id and compare to qNow.answer
     if (event.target.id == qNow.answer) {
       score = score + 1;
+      showScore.textContent = score;
       qIndex++;
+      //changeButton();
+      drawQuestion();
     } else {
       secondsLeft -= 5;
       qIndex++;
+      //changeButton();
+      drawQuestion();
     }
   }
-  //TODO: draw next question
 
   //TODO: add point for correct answer
-
-  //TODO: call logic to subtract time for wrong answer
 
   //TODO: remove/hide start quiz button
 }
 
-//Create countdown function and add it to the header h1
 function setTime() {
   //TODO: insert logic to subtract time from countdown
   // Sets interval in variable
@@ -132,15 +132,13 @@ function setTime() {
     if (secondsLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
-      // Calls function to create and append image
-      //gameOver();
     }
   }, 1000);
 }
 
+//Quiz Controller function
 function startQuiz() {
   drawQuestion();
   setTime();
-  console.log(qIndex);
-  qIndex++;
+  startButton.style.display = "none";
 }
