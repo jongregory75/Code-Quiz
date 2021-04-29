@@ -57,12 +57,9 @@ var mainContent = document.getElementById("mainContent");
 var secondsLeft = 60;
 var qIndex = 0;
 var cIndex = document.getElementById("choices");
-
 var cAnswer = "";
 var score = 0;
 var showScore = document.querySelector(".showScore");
-var buttonId = "";
-var buttonValue = "";
 var cButtons = "";
 var qAnswer = "";
 var qnow = "";
@@ -76,19 +73,21 @@ function drawQuestion() {
   qTitle.textContent = qNow.question;
 
   cIndex.innerHTML = "";
-  //for each object in the array qArray
+  //for each object in the qArray
   qNow.choices.forEach(function (choice, i) {
-    //generate answer buttons
+    //generate answer buttons, assigns class name and ids to each button
     var cButtons = document.createElement("button");
     var cAnswer = cButtons.setAttribute("class", "choice");
     cButtons.textContent = i + 1 + ".   " + choice;
     cButtons.setAttribute("id", i);
     cIndex.appendChild(cButtons);
+    //event listener for cButtons, passes event object to checkAnswer
     cButtons.onclick = checkAnswer;
   });
 
   function checkAnswer(event) {
     // event.target.id and compare to qNow.answer
+    // logic for score and time counters, draws next question in array
     if (event.target.id == qNow.answer) {
       console.log("truthy ---> Correct Answer");
       console.log("Score inside Corrent Answer: " + score);
@@ -98,13 +97,6 @@ function drawQuestion() {
       qIndex++;
       drawQuestion();
     } else {
-      console.log(
-        "Falsey ---> Wrong Answer " +
-          "event.target.id = " +
-          event.target.id +
-          "  qNow.answer = " +
-          qNow.answer
-      );
       secondsLeft -= 5;
       qIndex++;
       drawQuestion();
@@ -113,8 +105,7 @@ function drawQuestion() {
 }
 
 function setTime() {
-  //TODO: insert logic to subtract time from countdown
-  // Sets interval in variable
+  // timer logic and assignment to secondsLeft
   var timerInterval = setInterval(function () {
     secondsLeft--;
     clock.textContent = secondsLeft;
