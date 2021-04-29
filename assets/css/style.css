@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+}
+
+div {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: blueviolet;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+}
+
+  #button {
+  }
+
+  .clock {
+    flex-direction: row;
+    justify-content: flex-end;
+    color: black;
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .score {
+  }
+
+  .questions {
+  }
+
+  #question {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: blueviolet;
+    font-size: 1.5rem;
+    color: ghostwhite;
+    font-weight: bolder;
+    justify-content: center;
+    border: black;
+    border-radius: 5px;
+    border-width: 2px;
+    line-height: 1.5;
+  }
+
+  button {
+    margin-left: 20%;
+    margin-top: 8px;
+    width: 250px;
+    height:33px;
+    border: 1px;
+    border-radius: 7px;
+    background: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #666;
+    box-shadow: 0 4px 4px #06f;
+    outline: none;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  button:active {
+    /* set time duration to your needs */
+    animation: gradient 100ms;
+    background: rgb(175, 208, 240);
+    color: #fff;
+    box-shadow: none;
+  }
+}
+#choices {
+}
+
+#choiceOne {
+}
+
+#choiceTwo {
+}
+
+#choiceThree {
+}
+
+#choiceFour {
+}
