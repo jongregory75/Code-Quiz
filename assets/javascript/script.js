@@ -45,34 +45,26 @@ var qArray = [
   {
     question: "Humans share 60% of their DNA with this postal fruit?",
     choices: ["Apples", "Cranberries", "Bananas", "Pears"],
-    answer: 3,
+    answer: 2,
   },
 ];
 
+var startButton = document.getElementById("startQuiz");
+startButton.onclick = startQuiz;
+var event = "";
 var clock = document.querySelector(".clock");
-var showScore = document.querySelector(".showScore");
 var mainContent = document.getElementById("mainContent");
 var secondsLeft = 60;
 var qIndex = 0;
 var cIndex = document.getElementById("choices");
-var startButton = document.getElementById("startQuiz");
-startButton.onclick = startQuiz;
-//TODO hide startQuiz button after initial click
+
 var cAnswer = "";
-var score = 0;
+//var score = 0;
 var buttonId = "";
 var buttonValue = "";
 var cButtons = "";
 var qAnswer = "";
 var qnow = "";
-//create event listener for line 83 compare button click to answer for that array index
-
-// Function to create and append topScores
-function gameOver() {
-  clock.textContent = "";
-  var mainContent = document.createElement("<h1> + Game Over </h1>");
-  //TODO: game over logic
-}
 
 //function used to draw each question from the array of objects
 function drawQuestion() {
@@ -85,41 +77,40 @@ function drawQuestion() {
   cIndex.innerHTML = "";
   //for each object in the array qArray
   qNow.choices.forEach(function (choice, i) {
-    //generate answser buttons
+    //generate answer buttons
     var cButtons = document.createElement("button");
     var cAnswer = cButtons.setAttribute("class", "choice");
-    // cButtons.setAttribute("value", i);
-    // cButtons.setAttribute("id", i);
     cButtons.textContent = i + 1 + ".   " + choice;
+    cButtons.setAttribute("id", i);
     cIndex.appendChild(cButtons);
-    // });
-    // document.addEventListener("click", function (event) {
-    //   if (event.target.matches(".choice")) {
-    //     checkAnswer(event);
-    //   }
     cButtons.onclick = checkAnswer;
-    cIndex.appendChild(cButtons);
   });
 
   function checkAnswer(event) {
-    //TODO set var = event.target.id and compare to qNow.answer
+    // event.target.id and compare to qNow.answer
     if (event.target.id == qNow.answer) {
+      console.log("Correct Answer");
+      // console.log("Score inside Corrent Answer: " + score);
+      console.log("Event ID: " + this.id);
+      console.log("Event Test: " + event.srcElement.name);
       score = score + 1;
-      showScore.textContent = score;
       qIndex++;
-      //changeButton();
       drawQuestion();
     } else {
+      console.log(
+        "Wrong Answer " +
+          "event.target.id = " +
+          event.target.id +
+          "  qNow.answer = " +
+          qNow.answer
+      );
       secondsLeft -= 5;
       qIndex++;
-      //changeButton();
       drawQuestion();
     }
   }
 
   //TODO: add point for correct answer
-
-  //TODO: remove/hide start quiz button
 }
 
 function setTime() {
@@ -136,7 +127,7 @@ function setTime() {
   }, 1000);
 }
 
-//Quiz Controller function
+//Controller function
 function startQuiz() {
   drawQuestion();
   setTime();

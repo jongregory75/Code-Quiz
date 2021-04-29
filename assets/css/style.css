@@ -20,6 +20,11 @@ header {
   padding-top: 20px;
 }
 
+div .topBar {
+  display: flex;
+  justify-content: space-between;
+}
+
 div {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -29,17 +34,25 @@ div {
   justify-content: center;
 }
 
+#button {
+}
+
 .startButton {
   justify-content: center;
 }
 
-.clock {
-  flex-direction: row;
+h4 .clock {
   justify-content: flex-end;
   color: aliceblue;
 }
 
+h4 {
+  color: aliceblue;
+}
+
 h4 .showScore {
+  color: aliceblue;
+  justify-content: flex-start;
   color: aliceblue;
 }
 
@@ -54,7 +67,7 @@ h4 .showScore {
   color: ghostwhite;
   font-weight: bolder;
   justify-content: center;
-  border: black;
+  border: blueviolet;
   border-radius: 5px;
   border-width: 2px;
   line-height: 1.5;
