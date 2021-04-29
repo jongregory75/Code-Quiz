@@ -96,6 +96,8 @@ function drawQuestion() {
       showScore.textContent = score;
       qIndex++;
       drawQuestion();
+      //TODO: clear screen to GAME OVER content
+      //TODO: high score logic/local storage/persist
     } else {
       secondsLeft -= 5;
       qIndex++;

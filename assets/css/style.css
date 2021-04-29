@@ -14,12 +14,6 @@ header {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.main {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-}
-
 div .topBar {
   display: flex;
   justify-content: space-between;
@@ -31,10 +25,6 @@ div {
   color: blueviolet;
   width: 75%;
   display: flex;
-  justify-content: center;
-}
-
-.startButton {
   justify-content: center;
 }
 
@@ -53,8 +43,24 @@ h4 .showScore {
   color: aliceblue;
 }
 
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.startButton {
+  justify-content: center;
+}
+
 .questions {
-  width: 40%;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 #question {
@@ -69,8 +75,10 @@ h4 .showScore {
   border-width: 2px;
   line-height: 1.5;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
+/* generated choice buttons initial*/
 button {
   margin-left: 20%;
   margin-top: 8px;
@@ -88,10 +96,53 @@ button {
   text-align: left;
 }
 
+/* generated choice buttons active*/
 button:active {
-  /* set time duration to your needs */
-  animation: gradient 100ms;
+  animation: gradient 50ms;
   background: rgb(175, 208, 240);
   color: #fff;
   box-shadow: none;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  /* .aboutSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+  }
+
+  h2 {
+    justify-self: flex-end;
+    text-align: right;
+    font-size: 150%;
+    padding: 10px;
+    right: 80%;
+    width: 10%;
+    height: 100%;
+    border: 0px solid white;
+  } */
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 300px;
+    align-items: flex-start;
+    padding: 20px 30px;
+  }
+
+  /* .contactSectionContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .resumeSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  } */
 }
