@@ -96,10 +96,11 @@ function drawQuestion() {
       showScore.textContent = score;
       qIndex++;
 
-      //TODO: clear screen to GAME OVER content
       if (secondsLeft <= 0 || qIndex == 8) {
+        clock.style.display = "none";
         gameOver();
       }
+      //TODO: clear screen to GAME OVER content
       drawQuestion();
       //TODO: high score logic/local storage/persist
     } else {
@@ -107,6 +108,7 @@ function drawQuestion() {
       qIndex++;
 
       if (secondsLeft <= 0 || qIndex == 8) {
+        clock.style.display = "none";
         gameOver();
       }
       drawQuestion();
@@ -120,10 +122,10 @@ function setTime() {
     secondsLeft--;
     clock.textContent = secondsLeft;
 
-    if (secondsLeft === 0) {
+    if (secondsLeft == 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
-      gameOver();
+      //gameOver();
     }
   }, 1000);
 }
@@ -134,10 +136,10 @@ function gameOver() {
   console.log("In gameOver  HIGHSCORE " + highScore + " SHOWSCORE " + score);
   localStorage.setItem(highScore, score);
   console.log("Game over");
-  document.getElementById("mainContent").innerHTML =
-    "<div><h1>GAME OVER</h1><p>" +
-    localStorage.getItem(highScore) +
-    "</p></div>";
+
+  mainContent.innerHTML =
+    "<div><h1>GAME OVER</h1><p>" + highScore + "</p></div>";
+  mainContent.textContent = localStorage.getItem(highScore);
 }
 
 //Controller function
