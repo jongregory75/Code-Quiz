@@ -28,16 +28,31 @@
         <h4 class="clock"></h4>
       </div>
     </header>
-    <main class="main" id="mainContent">
-      <div class="questions">
-        <h3 id="question"></h3>
-      </div>
-      <div class="choiceDiv">
-        <ul id="choices"></ul>
-      </div>
-      <div class="startDiv">
-        <button id="startQuiz" class="startButton">Start Quiz</button>
-      </div>
+    <main>
+      <section class="main" id="mainContent">
+        <div class="questions">
+          <h3 id="question"></h3>
+        </div>
+        <div class="choiceDiv">
+          <ul id="choices"></ul>
+        </div>
+        <div class="startDiv">
+          <button id="startQuiz" class="startButton">Start Quiz</button>
+        </div>
+      </section>
+      <section class="gameOver" id="gameOver">
+        <div>
+          <h2 id="lastScore"></h4>
+          Add your score</h2>
+
+          <form class="enterScore" action="./assets/javascript/script.js"></form>
+          <label for="name">Enter Your Name</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div>
+          <button id="submitName" class="submitName">Submit</button>
+        </div>
+      </section>
     </main>
     <script src="./assets/javascript/script.js"></script>
   </body>

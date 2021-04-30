@@ -132,14 +132,23 @@ function setTime() {
 
 //game over function logic
 function gameOver() {
-  highScore = prompt("Enter your name for the scoreboard: ");
-  console.log("In gameOver  HIGHSCORE " + highScore + " SHOWSCORE " + score);
-  localStorage.setItem(highScore, score);
-  console.log("Game over");
+  //grab mainContent section and hide it
+  document
+    .getElementById("mainContent")
+    .setAttribute("style", "display: none;");
 
-  mainContent.innerHTML =
-    "<div><h1>GAME OVER</h1><p>" + highScore + "</p></div>";
-  mainContent.textContent = localStorage.getItem(highScore);
+  //make highscore section visible and iterate localstorage and render scores
+  document.getElementById("gameOver").setAttribute("style", "display: flex;");
+
+  scoreList = localStorage.setItem(highScore, score);
+
+  function buildScores() {
+    for (var i = 0; i < scoreList; i++) {
+      var liEl = document.createElement("li");
+      liEl.textContent =
+        document.getElementById("name").value + "   " + scoreList;
+    }
+  }
 }
 
 //Controller function

@@ -14,12 +14,22 @@ header {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+.gameOver {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
 div .topBar {
   display: flex;
   justify-content: space-between;
 }
 
-startDiv {
+.startDiv {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: blueviolet;
@@ -35,6 +45,10 @@ div {
   width: 75%;
   display: flex;
   justify-content: center;
+}
+
+.enterScore {
+  flex-direction: column;
 }
 
 /* question container */
